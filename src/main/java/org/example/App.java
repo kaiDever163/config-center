@@ -1,23 +1,21 @@
 package org.example;
 
-import com.sun.org.slf4j.internal.Logger;
-import com.sun.org.slf4j.internal.LoggerFactory;
-import org.example.pojo.Duck;
 import org.example.pojo.ParamName;
 import org.example.pojo.UnlucklyDuck;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
+import java.util.function.Consumer;
 
 /**
  * Hello world!
  */
 public class App {
-    public static void main(String[] args) throws IllegalAccessException, NoSuchFieldException {
-        randomString();
+    public static void main(String[] args) {
+        testConsumer();
     }
 
     public static void filedMethod() throws IllegalAccessException, NoSuchFieldException {
@@ -46,7 +44,7 @@ public class App {
         System.out.println(result);
     }
 
-    public static void testComputeIfAbsent(){
+    public static void testComputeIfAbsent() {
         Map<String, Integer> map = new HashMap<>();
 //        map.put("fankai",12);
         int length = map.computeIfAbsent("fankai", String::length);
@@ -55,7 +53,7 @@ public class App {
 
     }
 
-    public static void testAnnotation(){
+    public static void testAnnotation() {
 //        Method[] methods = UnlucklyDuck.class.getMethods();
 //        for (Method method : methods) {
 //            ParamName[] annotationsByType = method.getAnnotationsByType(ParamName.class);
@@ -68,5 +66,13 @@ public class App {
         }
     }
 
-
+    /**
+     * java 8 Consumer
+     */
+    public static void testConsumer() {
+        //设置好Consumer实现方法
+        Consumer<Integer> square = x -> System.out.println("平方计算 : " + x * x);
+        //传入值
+        square.accept(1);
+    }
 }
