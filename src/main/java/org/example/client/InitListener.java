@@ -18,7 +18,7 @@ public class InitListener implements ServletContextListener {
     public void  contextInitialized(ServletContextEvent sce) {
         Properties properties = new Properties();
         try {
-            properties.load(InitListener.class.getClassLoader().getResourceAsStream("config.properties"));
+            properties.load(InitListener.class.getClassLoader().getResourceAsStream("config-pro.properties"));
             //获得IP
             String hostAddress = InetAddress.getLocalHost().getHostAddress();
             //获得端口
