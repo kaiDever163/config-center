@@ -28,4 +28,8 @@ public class User {
     public void setAge(Integer age) {
         this.age = age;
     }
+
+    public static void main(String[] args) {
+        String str = new String("11");
+    }
 }
