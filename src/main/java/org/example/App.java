@@ -15,7 +15,7 @@ import java.util.function.Consumer;
  */
 public class App {
     public static void main(String[] args) {
-        testConsumerIsActive();
+        randomString();
     }
 
     public static void filedMethod() {
@@ -36,8 +36,8 @@ public class App {
 
     public static void randomString() {
         String result = UUID.randomUUID().toString().replace("-", "");
-//        System.out.println(result.substring(0, 8));
-        System.out.println(result);
+        System.out.println(result.substring(0, 8));
+//        System.out.println(result);
     }
 
     public static void testComputeIfAbsent() {
